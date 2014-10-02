@@ -1,0 +1,5 @@
+<root>
+    <item name='de.devland.esperandro.annotations.Default stringDefault'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

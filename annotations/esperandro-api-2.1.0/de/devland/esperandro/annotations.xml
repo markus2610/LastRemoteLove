@@ -1,0 +1,17 @@
+<root>
+    <item name='de.devland.esperandro.SharedPreferenceMode WORLD_WRITABLE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.SharedPreferenceMode MULTI_PROCESS'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.SharedPreferenceMode WORLD_READABLE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.Esperandro T getPreferences(java.lang.Class&lt;T&gt;, android.content.Context) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.SharedPreferenceMode PRIVATE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

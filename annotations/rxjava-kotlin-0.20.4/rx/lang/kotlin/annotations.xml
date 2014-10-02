@@ -1,0 +1,38 @@
+<root>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; mergeDelayError(kotlin.Triple&lt;rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; merge(kotlin.Pair&lt;? extends rx.Observable&lt;T&gt;,? extends rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; asObservable(kotlin.Pair&lt;? extends T,? extends T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; asObservable(kotlin.Triple&lt;T,T,T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; mergeDelayError(kotlin.Pair&lt;? extends rx.Observable&lt;T&gt;,? extends rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; mergeDelayError(kotlin.Pair&lt;? extends rx.Observable&lt;T&gt;,? extends rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; asObservable(kotlin.Pair&lt;? extends T,? extends T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; merge(kotlin.Pair&lt;? extends rx.Observable&lt;T&gt;,? extends rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; mergeDelayError(kotlin.Triple&lt;rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; asObservable(kotlin.Triple&lt;T,T,T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage-namespace-d8d28cdc rx.Observable&lt;T&gt; merge(kotlin.Triple&lt;rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.lang.kotlin.KotlinPackage rx.Observable&lt;T&gt; merge(kotlin.Triple&lt;rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;,rx.Observable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

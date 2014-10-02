@@ -1,0 +1,131 @@
+<root>
+    <item name='de.devland.esperandro.processor.GetterGenerator void createGetterFromReflection(java.lang.reflect.Method, javax.lang.model.element.Element, com.squareup.javawriter.JavaWriter) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants MODIFIER_PUBLIC'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants STANDARD_IMPORTS'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType OBJECT'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants DECLARED_TYPENAME_STRING'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator void createGetterFromReflection(java.lang.reflect.Method, javax.lang.model.element.Element, com.squareup.javawriter.JavaWriter) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator boolean needsSerialization(javax.lang.model.element.ExecutableElement) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType UNKNOWN'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType BOOLEAN'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Utils java.lang.String createClassNameForPreference(java.lang.String) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator void createGetterFromModel(javax.lang.model.element.ExecutableElement, com.squareup.javawriter.JavaWriter) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Warner MESSAGE_PREFIX'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator void createPutterFromReflection(java.lang.reflect.Method, javax.lang.model.element.Element, com.squareup.javawriter.JavaWriter) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants MODIFIER_PRIVATE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.EsperandroAnnotationProcessor boolean process(java.util.Set&lt;? extends javax.lang.model.element.TypeElement&gt;, javax.annotation.processing.RoundEnvironment) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceEditorCommitStyle void emitPreferenceCommitActionWithVersionCheck(com.squareup.javawriter.JavaWriter, de.devland.esperandro.processor.PreferenceEditorCommitStyle, java.lang.StringBuilder) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator void createPutterFromReflection(java.lang.reflect.Method, javax.lang.model.element.Element, com.squareup.javawriter.JavaWriter) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceEditorCommitStyle void emitPreferenceCommitActionWithVersionCheck(com.squareup.javawriter.JavaWriter, de.devland.esperandro.processor.PreferenceEditorCommitStyle, java.lang.StringBuilder) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants SHARED_PREFERENCES_ANNOTATION_NAME'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceEditorCommitStyle APPLY'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator void createPutterFromModel(javax.lang.model.element.ExecutableElement, com.squareup.javawriter.JavaWriter) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator boolean isGetter(javax.lang.model.element.ExecutableElement) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator boolean isPutter(javax.lang.model.element.ExecutableElement) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceTypeInformation de.devland.esperandro.processor.PreferenceTypeInformation from(java.lang.reflect.Type) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceEditorCommitStyle COMMIT'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants IMPLEMENTATION_SUFFIX'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceTypeInformation de.devland.esperandro.processor.PreferenceTypeInformation from(javax.lang.model.type.TypeMirror) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType INT'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType LONG'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType STRING'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants RUNTIME_DEFAULT_SUFFIX'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator boolean isStringSet(javax.lang.model.element.ExecutableElement) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator void createGetterFromModel(javax.lang.model.element.ExecutableElement, com.squareup.javawriter.JavaWriter) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.EsperandroAnnotationProcessor boolean process(java.util.Set&lt;? extends javax.lang.model.element.TypeElement&gt;, javax.annotation.processing.RoundEnvironment) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceEditorCommitStyle void emitPreferenceCommitActionWithVersionCheck(com.squareup.javawriter.JavaWriter, de.devland.esperandro.processor.PreferenceEditorCommitStyle, java.lang.StringBuilder) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.Constants DECLARED_TYPENAME_STRINGSET'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceTypeInformation de.devland.esperandro.processor.PreferenceTypeInformation from(java.lang.reflect.Type)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType FLOAT'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.GetterGenerator boolean isGetter(java.lang.reflect.Method) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator boolean isPutter(java.lang.reflect.Method) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceType STRINGSET'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PreferenceTypeInformation de.devland.esperandro.processor.PreferenceTypeInformation from(javax.lang.model.type.TypeMirror)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='de.devland.esperandro.processor.PutterGenerator void createPutterFromModel(javax.lang.model.element.ExecutableElement, com.squareup.javawriter.JavaWriter) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

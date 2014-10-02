@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion TARGET_SDK_VERSION
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.meoyawn.remotelove"
+
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    kotlinOptions.annotations = file("$rootDir/annotations/")
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+ext {
+    mementoVersion = '0.2'
+    daggerVersion = '1.2.2'
+    esperandroVersion = '2.1.0'
+    rxJavaVersion = '0.20.4'
+}
+
+repositories {
+    maven { url 'http://nexus.idamob.ru/content/groups/public' }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    compile 'com.squareup.okhttp:okhttp:2.0.0' // HTTP client
+    compile 'com.squareup.picasso:picasso:2.3.4' // image loading
+    compile 'com.squareup.retrofit:converter-jackson:1.6.1'
+
+    compile 'uk.co.chrisjenx.calligraphy:calligraphy:0.6.0' // custom fonts made easy
+
+    compile "com.github.mttkay.memento:memento:$mementoVersion" // retaining objects in activity
+    provided "com.github.mttkay.memento:memento-processor:$mementoVersion"
+    provided "de.devland.esperandro:esperandro:$esperandroVersion" // shared prefs boilerplate
+    compile "de.devland.esperandro:esperandro-api:$esperandroVersion"
+    compile "de.devland.esperandro:esperandro-jackson-addon:$esperandroVersion"
+
+    compile "com.squareup.dagger:dagger:$daggerVersion" // DI
+    provided "com.squareup.dagger:dagger-compiler:$daggerVersion"
+    compile "com.netflix.rxjava:rxjava-android:$rxJavaVersion" // asyncrony and events
+    compile "com.netflix.rxjava:rxjava-kotlin:$rxJavaVersion"
+    provided 'com.github.idamobile:dagger-proguard-helper-processor:1.0-SNAPSHOT'
+
+    compile 'uk.co.chrisjenx.calligraphy:calligraphy:0.6.0' // custom fonts made easy
+    compile 'com.jakewharton:butterknife:5.1.2' // view injection
+
+    compile 'com.jakewharton.timber:timber:2.4.1' // logging
+    compile 'com.squareup.flow:flow:0.8'
+    compile 'com.squareup.mortar:mortar:0.16'
+}
+
+configurations {
+    compile.exclude module: 'gson' // we prefer jackson over gson for more convinient configuration
+    compile.exclude module: 'guava' // some deps drag this monster into the final APK
+}

@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        MIN_SDK_VERSION = 15
+        TARGET_SDK_VERSION = 20
+        BUILD_TOOLS_VERSION = '20'
+        SUPPORT_LIBRARY_VERSION = '20.0.0'
+
+        kotlinVersion = '0.8.11'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.13.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.5'
+    }
+}
+
+apply plugin: 'com.github.ben-manes.versions'
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
