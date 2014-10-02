@@ -14,8 +14,10 @@ class UsernameView(ctx: Context, attrs: AttributeSet) : UsernameViewBase(ctx, at
     override fun onFinishInflate() {
         super<UsernameViewBase>.onFinishInflate()
         ButterKnife.inject(this)
-        username.submits().subscribe {
-            AppFlow.get(getContext()).goTo(PasswordScreen(it as String))
-        }
+        username.submits()
+                .takeUntil(detaches)!!
+                .subscribe {
+                    AppFlow.get(getContext()).goTo(PasswordScreen(it as String))
+                }
     }
 }

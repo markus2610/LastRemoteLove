@@ -36,7 +36,7 @@ public final class AppFlow {
     return appFlow.flow;
   }
 
-  public static <T> T getScreen(Context context) {
+  public static @NotNull <T> T getScreen(Context context) {
     // If this blows up, it's on the caller.  We hide the cast as a convenience.
     //noinspection unchecked
     return (T) LocalScreenWrapper.get(context).localScreen;

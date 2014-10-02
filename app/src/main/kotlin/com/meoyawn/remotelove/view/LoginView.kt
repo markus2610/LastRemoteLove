@@ -8,47 +8,38 @@ import com.meoyawn.remotelove.screen.UsernameScreen
 import flow.Flow
 import flow.Backstack
 import com.example.flow.appflow.AppFlow
-import android.os.Parcelable
-import android.os.Bundle
 import com.example.flow.appflow.Screen
 import com.meoyawn.remotelove.Dagger
-import butterknife.ButterKnife
 import com.meoyawn.remotelove.util.AppFlowContextWrapper
+import com.example.flow.screenswitcher.FrameScreenSwitcherView
+import android.view.ViewGroup
+import android.widget.LinearLayout.LayoutParams
+import com.example.flow.screenswitcher.HandlesBack
 
 /**
  * Created by adelnizamutdinov on 10/1/14
  */
-class LoginView(ctx: Context, attrs: AttributeSet? = null) : LoginViewBase(ctx, attrs), Flow.Listener {
+class LoginView(ctx: Context, attrs: AttributeSet? = null) : LoginViewBase(ctx, attrs), Flow.Listener, HandlesBack {
     val flowBundler by Delegates.lazy { FlowBundler(UsernameScreen(), this, parcer) }
-    var appFlow: AppFlow by Delegates.notNull()
+    val appFlow: AppFlow by Delegates.lazy { flowBundler.onCreate(null) }
+    val c: Context by Delegates.lazy { AppFlowContextWrapper(getContext() as Context, appFlow) }
+    val container: FrameScreenSwitcherView by Delegates.lazy { FrameScreenSwitcherView(c, null) }
 
     override fun onFinishInflate() {
         super<LoginViewBase>.onFinishInflate()
         Dagger.inject(this)
-        ButterKnife.inject(this)
 
-        appFlow = flowBundler.onCreate(null)
-        AppFlow.loadInitialScreen(AppFlowContextWrapper(getContext() as Context, appFlow))
-    }
+        addView(container, LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
 
-    override fun onRestoreInstanceState(state: Parcelable?) {
-        var mut = state
-        if (state is Bundle) {
-            flowBundler.onCreate(state)
-            mut = state.getParcelable("instanceState")
-        }
-        super<LoginViewBase>.onRestoreInstanceState(mut)
-    }
-
-    override fun onSaveInstanceState(): Parcelable {
-        val bundle = Bundle()
-        bundle.putParcelable("instanceState", super<LoginViewBase>.onSaveInstanceState())
-        flowBundler.onSaveInstanceState(bundle)
-        return bundle
+        AppFlow.loadInitialScreen(c)
     }
 
     override fun go(nextBackstack: Backstack?, direction: Flow.Direction?, callback: Flow.Callback?) {
         val screen = nextBackstack?.current()?.getScreen() as Screen
         container.showScreen(screen, direction, callback)
+    }
+
+    override fun onBackPressed(): Boolean {
+        return AppFlow.get(c).goBack();
     }
 }

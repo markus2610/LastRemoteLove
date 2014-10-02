@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public class LoginViewBase extends LinearLayout {
   @Inject @NotNull                           Parcer<Object>          parcer;
-  @InjectView(R.id.login_container) @NotNull FrameScreenSwitcherView container;
 
   public LoginViewBase(Context context, AttributeSet attrs) { super(context, attrs); }
 }
