@@ -52,13 +52,12 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
     compile 'com.squareup.okhttp:okhttp:2.0.0' // HTTP client
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
     compile 'com.squareup.picasso:picasso:2.3.4' // image loading
     compile 'com.squareup.retrofit:converter-jackson:1.6.1'
 
     compile 'uk.co.chrisjenx.calligraphy:calligraphy:0.6.0' // custom fonts made easy
 
-    compile "com.github.mttkay.memento:memento:$mementoVersion" // retaining objects in activity
-    provided "com.github.mttkay.memento:memento-processor:$mementoVersion"
     provided "de.devland.esperandro:esperandro:$esperandroVersion" // shared prefs boilerplate
     compile "de.devland.esperandro:esperandro-api:$esperandroVersion"
     compile "de.devland.esperandro:esperandro-jackson-addon:$esperandroVersion"

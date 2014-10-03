@@ -14,7 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(RobolectricTestRunner.class)
 public class LastFmTest {
   @Test public void testMd5() {
-    assertThat(ApiPackage.md5("123"))
-        .isEqualTo("202cb962ac59075b964b07152d234b70");
+    final String actual = ApiPackage.md5("123");
+    assertThat(actual).hasSize(32).isEqualTo("202cb962ac59075b964b07152d234b70");
+    assertThat(ApiPackage.md5("AHAHA")).isEqualTo("0e0d3b55d9348830fbf722f45a8cb8d2");
   }
 }

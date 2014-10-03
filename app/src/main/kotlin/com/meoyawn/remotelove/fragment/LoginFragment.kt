@@ -15,6 +15,11 @@ import com.meoyawn.remotelove.HandleBack
 import kotlin.properties.Delegates
 import android.widget.ProgressBar
 import com.meoyawn.remotelove.widget.translate
+import com.meoyawn.remotelove.api.apiSig
+import com.meoyawn.remotelove.api.GET_MOBILE_SESSION
+import rx.schedulers.Schedulers
+import com.meoyawn.remotelove.Dagger
+import rx.android.schedulers.AndroidSchedulers
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -32,6 +37,7 @@ class LoginFragment : LoginFragmentBase(), HandleBack {
     super<LoginFragmentBase>.onCreate(savedInstanceState)
     viewCreates
         .flatMap { view ->
+          Dagger.inject(this)
           ButterKnife.inject(this, view)
           username.submits()
               .flatMap { usrnm ->
@@ -45,14 +51,27 @@ class LoginFragment : LoginFragmentBase(), HandleBack {
                           Observable.empty<String>()
                         } else {
                           translate(password, progress, true)
-                          Observable.empty<String>()
+
+                          val API_KEY = "59ce954b080ef3eb99cca836896dbf5e"
+                          val uas = usrnm as String
+                          val pas = pwd as String
+                          val apiSig = apiSig(API_KEY, GET_MOBILE_SESSION, pas, uas, "d4c1fab919d52f46fd1d2829a37d127c")
+                          lastFmLazy.get()
+                              ?.getMobileSession(pas, uas, API_KEY, apiSig)!!
+                              .subscribeOn(Schedulers.io())!!
+                              .doOnNext { preferencesLazy.get()?.session(it?.session) }
                         }
                       }
                 }
               }
         }!!
         .takeUntil(viewDestroys)!!
-        .subscribe()
+        .observeOn(AndroidSchedulers.mainThread())!!
+        .subscribe {
+          getFragmentManager()!!.beginTransaction()
+              .replace(android.R.id.content, LoveFragment())
+              .commit()
+        }
   }
 
   override fun handleBack(): Boolean = when {
