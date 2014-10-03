@@ -20,6 +20,8 @@ import com.meoyawn.remotelove.api.GET_MOBILE_SESSION
 import rx.schedulers.Schedulers
 import com.meoyawn.remotelove.Dagger
 import rx.android.schedulers.AndroidSchedulers
+import com.meoyawn.remotelove.api.API_KEY
+import com.meoyawn.remotelove.api.API_SECRET
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -33,44 +35,41 @@ class LoginFragment : LoginFragmentBase(), HandleBack {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
       inflater.inflate(R.layout.login, container, false)
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super<LoginFragmentBase>.onCreate(savedInstanceState)
-    viewCreates
-        .flatMap { view ->
-          Dagger.inject(this)
-          ButterKnife.inject(this, view)
-          username.submits()
-              .flatMap { usrnm ->
-                if (TextUtils.isEmpty(usrnm))
-                  Observable.empty<String>()
-                else {
-                  translate(username, password, true)
-                  password.submits()
-                      .flatMap { pwd ->
-                        if (TextUtils.isEmpty(pwd)) {
-                          Observable.empty<String>()
-                        } else {
-                          translate(password, progress, true)
+  override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    super<LoginFragmentBase>.onViewCreated(view, savedInstanceState)
+    Dagger.inject(this)
+    ButterKnife.inject(this, view)
+    username.submits()
+        .flatMap { usrnm ->
+          if (TextUtils.isEmpty(usrnm))
+            Observable.empty<String>()
+          else {
+            translate(username, password, true)
+            password.submits()
+                .flatMap { pwd ->
+                  if (TextUtils.isEmpty(pwd)) {
+                    Observable.empty<String>()
+                  } else {
+                    translate(password, progress, true)
 
-                          val API_KEY = "59ce954b080ef3eb99cca836896dbf5e"
-                          val uas = usrnm as String
-                          val pas = pwd as String
-                          val apiSig = apiSig(API_KEY, GET_MOBILE_SESSION, pas, uas, "d4c1fab919d52f46fd1d2829a37d127c")
-                          lastFmLazy.get()
-                              ?.getMobileSession(pas, uas, API_KEY, apiSig)!!
-                              .subscribeOn(Schedulers.io())!!
-                              .doOnNext { preferencesLazy.get()?.session(it?.session) }
-                        }
-                      }
+                    val uas = usrnm as String
+                    val pas = pwd as String
+                    val apiSig = apiSig(API_KEY, GET_MOBILE_SESSION, pas, uas, API_SECRET)
+                    lastFmLazy.get()
+                        ?.getMobileSession(pas, uas, API_KEY, apiSig)!!
+                        .subscribeOn(Schedulers.io())!!
+                        .doOnNext { preferencesLazy.get()?.session(it?.session) }
+                  }
                 }
-              }
+          }
         }!!
         .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
         .subscribe {
-          getFragmentManager()!!.beginTransaction()
-              .replace(android.R.id.content, LoveFragment())
-              .commit()
+          getFragmentManager()
+              ?.beginTransaction()
+              ?.replace(android.R.id.content, LoveFragment())
+              ?.commit()
         }
   }
 

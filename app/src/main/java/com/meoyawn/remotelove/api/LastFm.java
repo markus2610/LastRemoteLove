@@ -21,7 +21,7 @@ public interface LastFm {
                                              @Field("api_key") @NotNull String apiKey,
                                              @Field("api_sig") @NotNull String apiSig);
 
-  @GET("/?method=$GET_RECENT_TRACKS&nowplaying=true&extended=1&limit=1")
+  @GET("/?method=user.getRecentTracks&nowplaying=true&extended=1&limit=1")
   Observable<RecentTracksHolder> getRecentTracks(@Query("user") @NotNull String user,
                                                  @Query("api_key") @NotNull String apiKey);
 }

@@ -9,6 +9,7 @@ import com.meoyawn.remotelove.api.ApiPackage;
 import com.meoyawn.remotelove.api.LastFm;
 import com.meoyawn.remotelove.api.Preferences;
 import com.meoyawn.remotelove.fragment.LoginFragment;
+import com.meoyawn.remotelove.fragment.LoveFragment;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.picasso.OkHttpDownloader;
@@ -30,7 +31,8 @@ import timber.log.Timber;
  * Created by adelnizamutdinov on 10/3/14
  */
 @Module(injects = {
-    LoginFragment.class
+    LoginFragment.class,
+    LoveFragment.class
 },
         library = true)
 public class LoveModule {
