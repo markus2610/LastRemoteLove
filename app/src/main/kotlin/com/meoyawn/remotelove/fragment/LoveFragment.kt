@@ -16,14 +16,13 @@ class LoveFragment : LoveFragmentBase() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super<LoveFragmentBase>.onCreate(savedInstanceState)
     Dagger.inject(this)
-    Observable.interval(1, TimeUnit.SECONDS)!!
+    Observable.interval(1, TimeUnit.SECONDS, Schedulers.io())!!
         .flatMap {
           val session = preferencesLazy.get()?.session()
-          lastFmLazy.get()?.getRecentTracks(session?.name as String, API_KEY)!!
-              .subscribeOn(Schedulers.io())
+          lastFmLazy.get()?.getRecentTracks(session?.name as String, API_KEY)
         }!!
         .map { it?.recenttracks?.track?.filter { it.attr?.nowplaying }?.first }!!
         .takeUntil(viewDestroys)!!
-        .subscribe { Timber.d("%s", it) }
+        .subscribe { Timber.d("%s", it?.name) }
   }
 }

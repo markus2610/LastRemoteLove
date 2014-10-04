@@ -17,7 +17,7 @@ class LoveActivity : Activity() {
     super<Activity>.onCreate(savedInstanceState)
     if (savedInstanceState == null) {
       getFragmentManager().beginTransaction()
-          .add(android.R.id.content, LoginFragment())
+          .replace(android.R.id.content, LoginFragment())
           .commit()
     }
   }

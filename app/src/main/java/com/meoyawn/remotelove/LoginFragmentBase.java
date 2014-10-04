@@ -1,6 +1,6 @@
 package com.meoyawn.remotelove;
 
-import android.view.ViewStub;
+import android.widget.EditText;
 import butterknife.InjectView;
 import com.meoyawn.remotelove.api.LastFm;
 import com.meoyawn.remotelove.api.Preferences;
@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 public class LoginFragmentBase extends RxFragment {
   protected @Inject @NotNull                    Lazy<LastFm>      lastFmLazy;
   protected @Inject @NotNull                    Lazy<Preferences> preferencesLazy;
-  protected @InjectView(R.id.username) @NotNull ViewStub          usernameStub;
-  protected @InjectView(R.id.password) @NotNull ViewStub          passwordStub;
-  protected @InjectView(R.id.progress) @NotNull ViewStub          progressStub;
+  protected @InjectView(R.id.username) @NotNull EditText          username;
+  protected @InjectView(R.id.password) @NotNull EditText          password;
 }
