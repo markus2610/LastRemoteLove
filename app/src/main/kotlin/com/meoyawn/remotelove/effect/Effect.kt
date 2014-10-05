@@ -13,21 +13,18 @@ trait Effect<T> {
   }
 }
 
-enum class Loading<T> : Effect<T> {
-  START
-  END
+data class Loading<T>(val loading: Boolean) : Effect<T> {
+  class object {
+    fun wrap<T>(o: Observable<T>): Observable<Effect<T>> = wrapEffect(Effect.wrap(o))
+
+    fun wrapEffect<T>(source: Observable<Effect<T>>): Observable<Effect<T>> =
+        Observable.concat(Observable.just(Loading(true)),
+                          source,
+                          Observable.just(Loading(false)))!!
+  }
 }
 
-object LoadingWrapper {
-  fun from<T>(x: Loading<T>): Effect<T> = x
-
-  fun wrap<T>(o: Observable<T>): Observable<Effect<in T>> = wrapEffect(Effect.wrap(o))
-
-  fun wrapEffect<T>(o: Observable<Effect<T>>): Observable<Effect<in T>> =
-      Observable.concat(Observable.just(from(Loading.START)), o, Observable.just(from(Loading.END)))!!
-}
-
-class Progress<T>(val percent: Int) : Effect<T> {
+data class Progress<T>(val percent: Int) : Effect<T> {
   class object {
     fun from<T>(percent: Int): Effect<T> = Progress(percent)
 
@@ -53,13 +50,13 @@ class Progress<T>(val percent: Int) : Effect<T> {
   }
 }
 
-class Success<T>(val value: T) : Effect<T> {
+data class Success<T>(val value: T) : Effect<T> {
   class object {
     fun from<T>(t: T): Effect<T> = Success(t)
   }
 }
 
-class Failure<T>(val throwable: Throwable) : Effect<T> {
+data class Failure<T>(val throwable: Throwable) : Effect<T> {
   class object {
     fun from<T>(t: Throwable): Effect<T> = Failure(t)
   }

@@ -16,6 +16,7 @@ import com.meoyawn.remotelove.R
 import com.meoyawn.remotelove.api.model.Track
 import com.meoyawn.remotelove.effect.Loading
 import com.meoyawn.remotelove.effect.Success
+import com.meoyawn.remotelove.effect.Failure
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -36,20 +37,28 @@ class LoveFragment : LoveFragmentBase() {
         Observable.interval(10, TimeUnit.SECONDS, Schedulers.io())!!
             .startWith(-1L)!!
             .flatMap {
-              Timber.d("interval $it")
-              lastFmLazy.get()!!
-                  .getRecentTracks(session.name, API_KEY)!!
-                  .map { it!!.recenttracks.track.filter { it.attr?.nowplaying ?: false }.first ?: Track.EMPTY }!!
+              Loading.wrap(
+                  lastFmLazy.get()!!
+                      .getRecentTracks(session.name, API_KEY)!!
+                      .map {
+                        it!!.recenttracks.track.filter { it.attr?.nowplaying ?: false }.first
+                            ?: Track.EMPTY
+                      }!!)
             }!!
             .takeUntil(destroys)!!
-
+            .subscribe(subject)
       }
     }
     subject
+        .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
         .subscribe {
           when (it) {
             is Loading -> {
+              Timber.d("%s", it)
+            }
+            is Failure -> {
+
             }
             is Success -> {
               val t: Track = it.value
