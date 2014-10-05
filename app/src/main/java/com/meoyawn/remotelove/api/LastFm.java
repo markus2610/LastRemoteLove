@@ -1,7 +1,7 @@
 package com.meoyawn.remotelove.api;
 
 import com.meoyawn.remotelove.api.model.RecentTracksHolder;
-import com.meoyawn.remotelove.api.model.SessionHolder;
+import com.meoyawn.remotelove.api.model.LastFmResponse;
 import org.jetbrains.annotations.NotNull;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
@@ -16,7 +16,7 @@ import rx.Observable;
 public interface LastFm {
   @FormUrlEncoded
   @POST("/?method=auth.getMobileSession")
-  Observable<SessionHolder> getMobileSession(@Field("password") @NotNull String password,
+  Observable<LastFmResponse> getMobileSession(@Field("password") @NotNull String password,
                                              @Field("username") @NotNull String username,
                                              @Field("api_key") @NotNull String apiKey,
                                              @Field("api_sig") @NotNull String apiSig);

@@ -7,10 +7,18 @@ import rx.subjects.PublishSubject
  * Created by adelnizamutdinov on 10/3/14
  */
 open class RxFragment : Fragment() {
-  val viewDestroys = PublishSubject.create<Fragment>() as PublishSubject<Fragment>
+  val viewDestroys = PublishSubject.create<Fragment>()!!
+  val destroys = PublishSubject.create<Fragment>()!!
 
   override fun onDestroyView() {
     viewDestroys.onNext(this)
     super<Fragment>.onDestroyView()
+  }
+
+  override fun onDestroy() {
+    if (getActivity()?.isFinishing()!! || !isAdded()) {
+      destroys.onNext(this)
+    }
+    super<Fragment>.onDestroy()
   }
 }

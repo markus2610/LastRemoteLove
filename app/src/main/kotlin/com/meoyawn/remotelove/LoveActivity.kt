@@ -1,28 +1,31 @@
 package com.meoyawn.remotelove
 
 import android.os.Bundle
-import android.app.Activity
 import com.meoyawn.remotelove.fragment.LoginFragment
 import java.lang.ref.WeakReference
 import android.app.Fragment
 import java.util.ArrayList
+import com.meoyawn.remotelove.fragment.LoveFragment
 
 /**
  * Created by adelnizamutdinov on 10/3/14
  */
-class LoveActivity : Activity() {
+class LoveActivity : LoveActivityBase() {
   val fragments: MutableList<WeakReference<Fragment>> = ArrayList()
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super<Activity>.onCreate(savedInstanceState)
+    super<LoveActivityBase>.onCreate(savedInstanceState)
+    Dagger.inject(this)
     if (savedInstanceState == null) {
       getFragmentManager().beginTransaction()
-          .replace(android.R.id.content, LoginFragment())
+          .replace(android.R.id.content,
+                   if (preferencesLazy.get()?.session() != null) LoveFragment()
+                   else LoginFragment())
           .commit()
     }
   }
   override fun onAttachFragment(fragment: Fragment?) {
-    super<Activity>.onAttachFragment(fragment)
+    super<LoveActivityBase>.onAttachFragment(fragment)
     fragments.add(WeakReference(fragment));
   }
 
@@ -43,6 +46,6 @@ class LoveActivity : Activity() {
         return
       }
     }
-    super<Activity>.onBackPressed()
+    super<LoveActivityBase>.onBackPressed()
   }
 }

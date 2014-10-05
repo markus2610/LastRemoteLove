@@ -10,7 +10,7 @@ import android.app.Fragment
  */
 object Dagger {
   fun inject(c: Context?, what: Any) {
-    (c?.getApplicationContext() as App).objectGraph?.inject(what)
+    (c?.getApplicationContext() as App).objectGraph.inject(what)
   }
   fun inject(v: View) {
     inject(v.getContext(), v)

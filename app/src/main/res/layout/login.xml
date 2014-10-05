@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@color/cpb_blue"
+    android:gravity="center_horizontal">
 
     <ImageView
         android:layout_width="match_parent"
@@ -11,10 +15,11 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/lastfm"
-        android:maxHeight="200dp"
+        android:maxHeight="@dimen/header_max"
         android:contentDescription="@string/app_name"/>
 
     <EditText
+        android:layout_marginTop="4dp"
         android:id="@+id/username"
         style="@style/LoginInput"
         android:inputType="text"
@@ -22,9 +27,22 @@
         android:hint="@string/username"/>
 
     <EditText
+        android:layout_marginTop="4dp"
         android:id="@+id/password"
         style="@style/LoginInput"
         android:inputType="textPassword"
         android:imeOptions="actionGo"
         android:hint="@string/password"/>
+
+    <com.dd.CircularProgressButton
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:id="@+id/submit_progress"
+        android:textSize="24sp"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:textColor="@android:color/white"
+        app:cpb_cornerRadius="100dp"
+        app:cpb_textError="@string/try_again"
+        app:cpb_textIdle="@string/login"/>
 </LinearLayout>

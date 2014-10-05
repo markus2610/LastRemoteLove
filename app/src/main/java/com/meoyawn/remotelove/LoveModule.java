@@ -8,6 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meoyawn.remotelove.api.ApiPackage;
 import com.meoyawn.remotelove.api.LastFm;
 import com.meoyawn.remotelove.api.Preferences;
+import com.meoyawn.remotelove.api.model.Session;
+import com.meoyawn.remotelove.api.model.Track;
+import com.meoyawn.remotelove.effect.Effect;
 import com.meoyawn.remotelove.fragment.LoginFragment;
 import com.meoyawn.remotelove.fragment.LoveFragment;
 import com.squareup.okhttp.Cache;
@@ -25,6 +28,8 @@ import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.JacksonConverter;
+import rx.subjects.ReplaySubject;
+import rx.subjects.Subject;
 import timber.log.Timber;
 
 /**
@@ -32,7 +37,8 @@ import timber.log.Timber;
  */
 @Module(injects = {
     LoginFragment.class,
-    LoveFragment.class
+    LoveFragment.class,
+    LoveActivity.class
 },
         library = true)
 public class LoveModule {
@@ -43,9 +49,9 @@ public class LoveModule {
   @Provides Context provideContext() { return application; }
 
   @Provides @Singleton ObjectMapper provideGson() {
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    return objectMapper;
+    return new ObjectMapper()
+        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
   }
 
   @Provides File provideCacheDir(Context context) {
@@ -92,5 +98,13 @@ public class LoveModule {
   @Provides @Singleton Preferences providePreferences(Context context, ObjectMapper objectMapper) {
     Esperandro.setSerializer(new JacksonSerializer(objectMapper));
     return Esperandro.getPreferences(Preferences.class, context);
+  }
+
+  @Provides @Singleton Subject<Effect<Session>, Effect<Session>> provideLoginFragmentSubject() {
+    return ReplaySubject.createWithSize(2);
+  }
+
+  @Provides @Singleton Subject<Effect<Track>, Effect<Track>> provideLoveFragmentSubject() {
+    return ReplaySubject.createWithSize(2);
   }
 }

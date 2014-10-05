@@ -3,4 +3,12 @@
     <string name="app_name">Last Remote Love</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="try_again">Try again</string>
+    <string name="login">Login</string>
+    <string name="check_network_connection">Check your network connection</string>
+    <string name="invalid_credentials">Can\'t login with these credentials</string>
+    <string name="invalid_username">Invalid username</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="no_credentials">Please fill in your credentials</string>
+    <string name="unrecognized_error_occurred">Unrecognized error occurred You might want to try again</string>
 </resources>
