@@ -13,3 +13,7 @@ data class LastFmResponse {
   var error: Int? = null
   var message: String? = null
 }
+
+data class Status {
+  var status: String = ""
+}

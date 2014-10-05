@@ -10,5 +10,5 @@ import org.jetbrains.annotations.NotNull;
  * Created by adelnizamutdinov on 10/5/14
  */
 public class LoveActivityBase extends Activity {
-  protected @Inject @NotNull Lazy<Preferences> preferencesLazy;
+  @Inject @NotNull Lazy<Preferences> preferencesLazy;
 }

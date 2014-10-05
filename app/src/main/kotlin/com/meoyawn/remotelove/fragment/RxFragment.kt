@@ -7,8 +7,14 @@ import rx.subjects.PublishSubject
  * Created by adelnizamutdinov on 10/3/14
  */
 open class RxFragment : Fragment() {
+  val pauses = PublishSubject.create<Fragment>()!!
   val viewDestroys = PublishSubject.create<Fragment>()!!
   val destroys = PublishSubject.create<Fragment>()!!
+
+  override fun onPause() {
+    pauses.onNext(this)
+    super<Fragment>.onPause()
+  }
 
   override fun onDestroyView() {
     viewDestroys.onNext(this)

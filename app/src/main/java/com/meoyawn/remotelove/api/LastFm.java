@@ -1,7 +1,8 @@
 package com.meoyawn.remotelove.api;
 
-import com.meoyawn.remotelove.api.model.RecentTracksHolder;
 import com.meoyawn.remotelove.api.model.LastFmResponse;
+import com.meoyawn.remotelove.api.model.RecentTracksHolder;
+import com.meoyawn.remotelove.api.model.Status;
 import org.jetbrains.annotations.NotNull;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
@@ -15,13 +16,22 @@ import rx.Observable;
  */
 public interface LastFm {
   @FormUrlEncoded
-  @POST("/?method=auth.getMobileSession")
-  Observable<LastFmResponse> getMobileSession(@Field("password") @NotNull String password,
-                                             @Field("username") @NotNull String username,
-                                             @Field("api_key") @NotNull String apiKey,
-                                             @Field("api_sig") @NotNull String apiSig);
+  @POST("/?method=auth.getMobileSession") Observable<LastFmResponse> getMobileSession(
+      @Field("password") @NotNull String password,
+      @Field("username") @NotNull String username,
+      @Field("api_key") @NotNull String apiKey,
+      @Field("api_sig") @NotNull String apiSig);
 
   @GET("/?method=user.getRecentTracks&nowplaying=true&extended=1&limit=1")
   Observable<RecentTracksHolder> getRecentTracks(@Query("user") @NotNull String user,
                                                  @Query("api_key") @NotNull String apiKey);
+
+  @FormUrlEncoded
+  @POST("/") Observable<Status> loveUnlove(
+      @Field("api_key") @NotNull String apiKey,
+      @Field("api_sig") @NotNull String apiSig,
+      @Field("artist") @NotNull String artist,
+      @Query("method") @NotNull String method,
+      @Field("sk") @NotNull String sessionKey,
+      @Field("track") @NotNull String track);
 }

@@ -1,6 +1,5 @@
 package com.meoyawn.remotelove.fragment
 
-import com.meoyawn.remotelove.LoginFragmentBase
 import android.os.Bundle
 import android.view.View
 import com.meoyawn.remotelove.widget.clicks
@@ -9,7 +8,6 @@ import com.meoyawn.remotelove.Dagger
 import com.meoyawn.remotelove.api.apiSig
 import com.meoyawn.remotelove.api.API_KEY
 import com.meoyawn.remotelove.api.API_SECRET
-import com.meoyawn.remotelove.api.GET_MOBILE_SESSION
 import rx.schedulers.Schedulers
 import com.meoyawn.remotelove.widget.submits
 import rx.Observable
@@ -45,7 +43,7 @@ class LoginFragment : LoginFragmentBase() {
         .flatMap {
           val pwd = password.getText().toString()
           val usrnm = username.getText().toString()
-          val sig = apiSig(API_KEY, GET_MOBILE_SESSION, pwd, usrnm, API_SECRET)
+          val sig = apiSig(API_KEY, pwd, usrnm, API_SECRET)
           when {
             !usrnm.isEmpty() && !pwd.isEmpty() ->
               Progress.fakeWrap(
@@ -68,6 +66,7 @@ class LoginFragment : LoginFragmentBase() {
         .subscribe(subject)
 
     subject
+        .asObservable()!!
         .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
         .subscribe {
