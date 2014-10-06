@@ -10,11 +10,9 @@ android:
 
 before_install: export TERM=dumb
 
-script: ./gradlew build check
+script: ./gradlew assembleDebug lintDebug testDebug
 
 branches:
   only:
     - master
     - production
-
-# after_success: uncomment this and add your own deployment targets

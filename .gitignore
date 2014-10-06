@@ -29,3 +29,5 @@ proguard/
 .idea/
 build/
 dagger-proguard-keepnames.cfg
+app/gradle.properties
+app/shit.keystore

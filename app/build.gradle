@@ -24,10 +24,19 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
     kotlinOptions.annotations = file("$rootDir/annotations/")
+    signingConfigs {
+        release {
+            storeFile file("shit.keystore")
+            storePassword PASSWORD
+            keyAlias ALIAS
+            keyPassword PASSWORD
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', "$rootDir/dagger-proguard-keepnames.cfg"
         }
     }
     packagingOptions {
@@ -73,7 +82,7 @@ dependencies {
     compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
     provided 'org.projectlombok:lombok:1.14.8'
     compile 'com.melnykov:floatingactionbutton:1.0.3'
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
 
     androidTestCompile 'org.robolectric:robolectric:2.3'
     androidTestCompile 'junit:junit:4.12-beta-2'
