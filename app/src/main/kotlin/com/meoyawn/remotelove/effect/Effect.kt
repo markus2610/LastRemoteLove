@@ -33,8 +33,8 @@ data class Progress<T>(val percent: Int) : Effect<T> {
       return Observable.interval(16, TimeUnit.MILLISECONDS)!!
           .map {
             when {
-              it!! > 95 -> {
-                val l = 95 + (it / 100)
+              it!! > 90 -> {
+                val l = 90 + (it / 100)
                 when {
                   l > 99 -> 99L
                   else -> l
