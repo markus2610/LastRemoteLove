@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Last.fm Love</string>
+    <string name="app_name">Last.fm Love Beta</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="try_again">Try again</string>
