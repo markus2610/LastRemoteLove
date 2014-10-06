@@ -26,10 +26,10 @@ android {
     kotlinOptions.annotations = file("$rootDir/annotations/")
     signingConfigs {
         release {
-            storeFile file(KEYSTORE)
-            storePassword PASSWORD
-            keyAlias ALIAS
-            keyPassword PASSWORD
+            storeFile file(KEYSTORE ?: "")
+            storePassword PASSWORD ?: ""
+            keyAlias ALIAS ?: ""
+            keyPassword PASSWORD ?: ""
         }
     }
     buildTypes {
