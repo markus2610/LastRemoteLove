@@ -13,7 +13,7 @@ android {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
 
-        versionCode 2
+        versionCode 3
         versionName "0.1"
     }
     compileOptions {
@@ -30,10 +30,10 @@ android {
     if (!isTravis) {
         signingConfigs {
             release {
-                storeFile file(KEYSTORE ?: "")
-                storePassword PASSWORD ?: ""
-                keyAlias ALIAS ?: ""
-                keyPassword PASSWORD ?: ""
+                storeFile file(KEYSTORE)
+                storePassword PASSWORD
+                keyAlias ALIAS
+                keyPassword PASSWORD
             }
         }
         buildTypes {
