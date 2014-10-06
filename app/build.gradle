@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'robolectric'
+apply plugin: 'crashlytics'
 
 android {
     compileSdkVersion TARGET_SDK_VERSION
@@ -59,6 +60,7 @@ ext {
 
 repositories {
     maven { url 'http://nexus.idamob.ru/content/groups/public' } // dagger proguard helper
+    maven { url 'http://download.crashlytics.com/maven' }
 }
 
 dependencies {
@@ -87,6 +89,7 @@ dependencies {
     provided 'org.projectlombok:lombok:1.14.8'
     compile 'com.melnykov:floatingactionbutton:1.0.3'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    compile 'com.crashlytics.android:crashlytics:1.+'
 
     androidTestCompile 'org.robolectric:robolectric:2.3'
     androidTestCompile 'junit:junit:4.12-beta-2'

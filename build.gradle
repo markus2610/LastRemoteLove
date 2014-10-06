@@ -9,12 +9,14 @@ buildscript {
     }
     repositories {
         jcenter()
+        maven { url 'http://download.crashlytics.com/maven' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.13.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.5'
-        classpath 'org.robolectric:robolectric-gradle-plugin:+'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.0'
+        classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.13.1'
     }
 }
 

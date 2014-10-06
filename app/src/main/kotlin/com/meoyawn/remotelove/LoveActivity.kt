@@ -6,6 +6,7 @@ import java.lang.ref.WeakReference
 import android.app.Fragment
 import java.util.ArrayList
 import com.meoyawn.remotelove.fragment.LoveFragment
+import com.crashlytics.android.Crashlytics
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -16,6 +17,7 @@ class LoveActivity : LoveActivityBase() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super<LoveActivityBase>.onCreate(savedInstanceState)
     Dagger.inject(this)
+    Crashlytics.start(this)
     if (savedInstanceState == null) {
       getFragmentManager().beginTransaction()
           .replace(android.R.id.content,
