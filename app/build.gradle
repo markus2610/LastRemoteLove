@@ -24,19 +24,23 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
     kotlinOptions.annotations = file("$rootDir/annotations/")
-    signingConfigs {
-        release {
-            storeFile file(KEYSTORE ?: "")
-            storePassword PASSWORD ?: ""
-            keyAlias ALIAS ?: ""
-            keyPassword PASSWORD ?: ""
+
+    final isTravis = "true".equals(System.getenv("TRAVIS"))
+    if (!isTravis) {
+        signingConfigs {
+            release {
+                storeFile file(KEYSTORE ?: "")
+                storePassword PASSWORD ?: ""
+                keyAlias ALIAS ?: ""
+                keyPassword PASSWORD ?: ""
+            }
         }
-    }
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', "$rootDir/dagger-proguard-keepnames.cfg"
+        buildTypes {
+            release {
+                signingConfig signingConfigs.release
+                runProguard false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', "$rootDir/dagger-proguard-keepnames.cfg"
+            }
         }
     }
     packagingOptions {
