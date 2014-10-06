@@ -1,0 +1,20 @@
+language: android
+
+android:
+  components:
+    - build-tools-20.0.0
+    - android-20
+    - extra-android-m2repository
+  licenses:
+    - android-sdk-license-5be876d5
+
+before_install: export TERM=dumb
+
+script: ./gradlew build check
+
+branches:
+  only:
+    - master
+    - production
+
+# after_success: uncomment this and add your own deployment targets
