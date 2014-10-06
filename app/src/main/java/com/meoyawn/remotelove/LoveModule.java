@@ -10,6 +10,7 @@ import com.meoyawn.remotelove.api.LastFm;
 import com.meoyawn.remotelove.api.Preferences;
 import com.meoyawn.remotelove.api.model.Session;
 import com.meoyawn.remotelove.api.model.Status;
+import com.meoyawn.remotelove.api.model.Track;
 import com.meoyawn.remotelove.effect.Effect;
 import com.meoyawn.remotelove.fragment.LoginFragment;
 import com.meoyawn.remotelove.fragment.LoveFragment;
@@ -105,6 +106,10 @@ public class LoveModule {
   }
 
   @Provides @Singleton Subject<Effect<Status>, Effect<Status>> provideStatusSubject() {
+    return ReplaySubject.createWithSize(2);
+  }
+
+  @Provides @Singleton Subject<Effect<Track>, Effect<Track>> provideTracksSubject() {
     return ReplaySubject.createWithSize(2);
   }
 }

@@ -12,6 +12,7 @@ import com.meoyawn.remotelove.R;
 import com.meoyawn.remotelove.api.LastFm;
 import com.meoyawn.remotelove.api.Preferences;
 import com.meoyawn.remotelove.api.model.Status;
+import com.meoyawn.remotelove.api.model.Track;
 import com.meoyawn.remotelove.effect.Effect;
 import com.squareup.picasso.Picasso;
 import dagger.Lazy;
@@ -28,12 +29,13 @@ public class LoveFragmentBase extends RxFragment {
   @Inject @NotNull Lazy<Picasso>                           picassoLazy;
   @Inject @NotNull Lazy<Preferences>                       preferencesLazy;
   @Inject @NotNull Subject<Effect<Status>, Effect<Status>> statusSubject;
+  @Inject @NotNull Subject<Effect<Track>, Effect<Track>>   tracksSubject;
 
   @InjectView(R.id.album_image) @NotNull ImageView   albumImage;
   @InjectView(R.id.artist) @NotNull      TextView    artist;
   @InjectView(R.id.title) @NotNull       TextView    title;
   @InjectView(R.id.love) @NotNull        ImageButton love;
-  @InjectView(R.id.cover_frame) @NotNull View        coverFrame;
+  @InjectView(R.id.cover_frame) @NotNull ViewGroup   coverFrame;
   @InjectView(R.id.more) @NotNull        View        more;
 
   @Nullable @Override public View onCreateView(@NotNull LayoutInflater inflater,

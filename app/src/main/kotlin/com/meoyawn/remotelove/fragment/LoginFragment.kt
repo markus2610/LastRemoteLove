@@ -39,7 +39,7 @@ class LoginFragment : LoginFragmentBase() {
     Dagger.inject(this)
     ButterKnife.inject(this, view)
 
-    Observable.merge(password.submits(), submit.clicks())!!
+    val logins = Observable.merge(password.submits(), submit.clicks())!!
         .flatMap {
           val pwd = password.getText().toString()
           val usrnm = username.getText().toString()
@@ -62,11 +62,10 @@ class LoginFragment : LoginFragmentBase() {
             else -> Observable.just(Failure.from<Session>(ToastException(R.string.no_credentials)))
           }
         }!!
-        .takeUntil(destroys)!!
         .subscribe(subject)
+    destroys.subscribe { logins?.unsubscribe() }
 
     subject
-        .asObservable()!!
         .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
         .subscribe {
@@ -79,9 +78,13 @@ class LoginFragment : LoginFragmentBase() {
               password.setEnabled(b)
             }
 
-            is Success -> getFragmentManager()?.beginTransaction()
-                ?.replace(android.R.id.content, LoveFragment())
-                ?.commit()
+            is Success -> {
+              if (preferencesLazy.get()!!.session() != null) {
+                getFragmentManager()?.beginTransaction()
+                    ?.replace(android.R.id.content, LoveFragment())
+                    ?.commit()
+              }
+            }
 
             is Failure -> {
               val t = it.throwable

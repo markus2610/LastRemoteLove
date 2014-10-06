@@ -11,4 +11,6 @@
     <string name="invalid_password">Invalid password</string>
     <string name="no_credentials">Please fill in your credentials</string>
     <string name="unrecognized_error_occurred">Unrecognized error occurred You might want to try again</string>
+    <string name="logout">Logout</string>
+    <string name="nothing_is_playing">Go put some music on</string>
 </resources>

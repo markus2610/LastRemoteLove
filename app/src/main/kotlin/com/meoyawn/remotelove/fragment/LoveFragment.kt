@@ -24,6 +24,13 @@ import com.meoyawn.remotelove.api.TRACK_LOVE
 import com.meoyawn.remotelove.effect.Effect
 import com.meoyawn.remotelove.api.model.Status
 import android.graphics.PorterDuff.Mode
+import android.widget.PopupMenu
+import android.widget.ImageView
+import android.widget.LinearLayout.LayoutParams
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.view.animation.DecelerateInterpolator
+import com.meoyawn.remotelove.util.ends
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -34,35 +41,58 @@ class LoveFragment : LoveFragmentBase() {
   var track: Track = Track.EMPTY
   var localLoved: Boolean? = null
 
-  override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-    super<LoveFragmentBase>.onViewCreated(view, savedInstanceState)
+  override fun onViewCreated(view: View?, inState: Bundle?) {
+    super<LoveFragmentBase>.onViewCreated(view, inState)
     Dagger.inject(this)
     ButterKnife.inject(this, view)
-    val clicks = love.clicks()
-    clicks
-        .flatMap {
-          val sk = preferencesLazy.get()?.session()?.key
-          val artist = track.artist.name
-          val name = track.name
-          if (sk != null ) {
-            val loved = localLoved ?: track.loved != 0
-            Timber.d("track is %b", loved)
-            val method = if (loved) TRACK_UNLOVE else TRACK_LOVE
-            Timber.d("will %s", method)
-            val sig = apiSig(API_KEY, artist, method, sk, name, API_SECRET)
-            Effect.wrap(lastFmLazy.get()!!.loveUnlove(API_KEY, sig, artist, method, sk, name)
-                            ?.subscribeOn(Schedulers.io())!!
-                            .takeUntil(clicks)!!)
-                .startWith(LoveEffect(!loved))!!
-          } else {
-            Observable.empty<Effect<Status>>()
-          }
-        }!!
-        .takeUntil(destroys)!!
-        .subscribe(statusSubject)
 
+    if (inState != null) {
+      track = inState.getParcelable("track")!!;
+      localLoved = inState.getBoolean("localLoved")
+      draw(track)
+      if (localLoved != null) {
+        draw(localLoved!!, false)
+      }
+    }
+
+    loveButtonPipe()
+    moreButtonPipe()
+    loveResultsPipe()
+    tracksResultsPipe()
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super<LoveFragmentBase>.onSaveInstanceState(outState)
+    outState.putParcelable("track", track)
+    if (localLoved != null) {
+      outState.putBoolean("localLoved", localLoved!!)
+    }
+  }
+
+  fun tracksResultsPipe() {
+    tracksSubject
+        .takeUntil(viewDestroys)!!
+        .observeOn(AndroidSchedulers.mainThread())!!
+        .subscribe {
+          when (it) {
+            is Loading -> {
+              if (it.loading && track == Track.EMPTY) {
+                love.setVisibility(View.INVISIBLE)
+              }
+            }
+            is Failure -> {
+              title.setText(R.string.check_network_connection)
+              coverFrame.setVisibility(View.INVISIBLE)
+              love.setVisibility(View.GONE)
+              artist.setVisibility(View.INVISIBLE)
+            }
+            is Success -> draw(it.value)
+          }
+        }
+  }
+
+  fun loveResultsPipe() {
     statusSubject
-        .asObservable()!!
         .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
         .subscribe {
@@ -73,7 +103,7 @@ class LoveFragment : LoveFragmentBase() {
                 track.loved = if (localLoved!!) 0 else 1
                 localLoved = null
               }
-              draw(track.loved != 0)
+              draw(track.loved != 0, false)
             }
             is Success -> {
               if (localLoved != null) {
@@ -85,17 +115,78 @@ class LoveFragment : LoveFragmentBase() {
             is LoveEffect -> {
               Timber.d("setting local as %b", it.loved)
               localLoved = it.loved
-              draw(it.loved)
+              draw(it.loved, true)
             }
           }
         }
   }
 
-  fun draw(loved: Boolean) {
+  fun moreButtonPipe() {
+    more.clicks()
+        .takeUntil(viewDestroys)!!
+        .subscribe {
+          val pm = PopupMenu(getActivity()!!, more)
+          pm.inflate(R.menu.love_more)
+          pm.setOnMenuItemClickListener {
+            when (it?.getItemId()) {
+              R.id.logout -> {
+                Timber.d("logging out")
+                preferencesLazy.get()!!.session(null)
+                getFragmentManager()!!.beginTransaction()
+                    .replace(android.R.id.content, LoginFragment())
+                    .commit()
+                true
+              }
+              else -> false
+            }
+          }
+          pm.show()
+        }
+  }
+
+  fun loveButtonPipe() {
+    val albumTaps = albumImage.clicks()
+    val doubleTaps = albumTaps.flatMap { albumTaps.takeUntil(Observable.timer(200, TimeUnit.MILLISECONDS)) }
+
+    val clicks = Observable.merge(love.clicks(), doubleTaps)!!
+    val sub = clicks.flatMap {
+      val sk = preferencesLazy.get()?.session()?.key
+      val artist = track.artist.name
+      val name = track.name
+      if (sk != null ) {
+        val loved = localLoved ?: track.loved != 0
+        val method = if (loved) TRACK_UNLOVE else TRACK_LOVE
+        val sig = apiSig(API_KEY, artist, method, sk, name, API_SECRET)
+        Effect.wrap(lastFmLazy.get()!!.loveUnlove(API_KEY, sig, artist, method, sk, name)
+                        ?.subscribeOn(Schedulers.io())!!)
+            .startWith(LoveEffect(!loved))!!
+            .takeUntil(clicks)!!
+      } else {
+        Observable.empty<Effect<Status>>()
+      }
+    }!!.subscribe(statusSubject)
+    destroys.subscribe { sub?.unsubscribe() }
+  }
+
+  fun draw(loved: Boolean, user: Boolean) {
     if (loved) {
       val mutated = getResources()?.getDrawable(R.drawable.ic_action_love)?.mutate()
       mutated?.setColorFilter(getResources()?.getColor(android.R.color.holo_red_light)!!, Mode.SRC_ATOP)
       love.setImageDrawable(mutated)
+
+      if (user) {
+        val iv = ImageView(getActivity()!!)
+        iv.setImageResource(R.drawable.heart_pop)
+        coverFrame.addView(iv, LayoutParams(coverFrame.getWidth(), coverFrame.getHeight()))
+        val set = AnimatorSet()
+        set.playTogether(ObjectAnimator.ofFloat(iv, View.SCALE_X, 2f),
+                         ObjectAnimator.ofFloat(iv, View.SCALE_Y, 2f),
+                         ObjectAnimator.ofFloat(iv, View.ALPHA, 0.5f, 0f))
+        set.setInterpolator(DecelerateInterpolator())
+        set.setDuration(200)
+        set.ends().subscribe { coverFrame.removeView(iv) }
+        set.start()
+      }
     } else {
       love.setImageResource(R.drawable.ic_action_love)
     }
@@ -109,41 +200,26 @@ class LoveFragment : LoveFragmentBase() {
           ?.replace(android.R.id.content, LoginFragment())
           ?.commit()
     } else {
-      Observable.interval(10, TimeUnit.SECONDS, Schedulers.io())!!
+      val sub = Observable.interval(10, TimeUnit.SECONDS, Schedulers.io())!!
           .startWith(-1L)!!
           .flatMap {
             Loading.wrap(
                 lastFmLazy.get()!!
                     .getRecentTracks(session.name, API_KEY)!!
                     .map {
-                      val arrayOfTracks = it!!.recenttracks.track
-                      val filtered = arrayOfTracks.filter { it.attr?.nowplaying ?: false }
-                      filtered.first ?: Track.EMPTY
+                      val tracks = it!!.recenttracks.track
+                      if (tracks.size == 2) tracks.first() else Track.EMPTY
                     }!!)
           }!!
-          .takeUntil(pauses)!!
-          .observeOn(AndroidSchedulers.mainThread())!!
-          .subscribe {
-            when (it) {
-              is Loading -> {
-                Timber.d("%s", it)
-              }
-              is Failure -> {
-                title.setText(R.string.check_network_connection)
-                coverFrame.setVisibility(View.INVISIBLE)
-                love.setVisibility(View.GONE)
-                artist.setVisibility(View.INVISIBLE)
-              }
-              is Success -> draw(it.value)
-            }
-          }
+          .subscribe(tracksSubject)
+      pauses.subscribe { sub?.unsubscribe() }
     }
   }
 
   fun draw(t: Track) {
     this.track = t;
     if (t == Track.EMPTY) {
-      // TODO no track
+      title.setText(R.string.nothing_is_playing)
       coverFrame.setVisibility(View.INVISIBLE)
       love.setVisibility(View.GONE)
       artist.setVisibility(View.INVISIBLE)
@@ -155,7 +231,7 @@ class LoveFragment : LoveFragmentBase() {
       artist.setText(t.artist.name)
       title.setText(t.name)
 
-      draw(t.loved != 0)
+      draw(t.loved != 0, false)
 
       val albumCover = t.image.lastOrNull()?.url
       val image = when {
