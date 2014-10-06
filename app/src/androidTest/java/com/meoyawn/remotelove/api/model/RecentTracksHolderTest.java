@@ -28,8 +28,8 @@ public class RecentTracksHolderTest {
   }
 
   @Test public void testNowPlayingParsing() throws Exception {
-    Track[] track = parse("nowplaying.json", RecentTracksHolder.class).getRecenttracks().getTrack();
-    assertThat(track[0].getName()).isNotNull();
+    Track[] track = parse("nowplaying.json", RecentTracksHolder.class).recenttracks.track;
+    assertThat(track[0].name).isNotNull();
   }
 
   <T> T parse(String fileName, Class<T> clazz) throws IOException {

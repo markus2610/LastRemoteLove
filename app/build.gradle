@@ -83,4 +83,6 @@ dependencies {
 configurations {
     compile.exclude module: 'gson' // we prefer jackson over gson for more convinient configuration
     compile.exclude module: 'guava' // some deps drag this monster into the final APK
+    androidTestCompile.exclude module: 'commons-logging'
+    androidTestCompile.exclude module: 'httpclient'
 }
