@@ -15,3 +15,12 @@ fun View.clicks(): Observable<View> {
   }
   return s
 }
+object Views {
+  fun setVisibility(visibility: Int, views: Array<View>) {
+    for (v in views) {
+      v.setVisibility(visibility)
+    }
+  }
+  fun setVisible(vararg views: View): Unit = setVisibility(View.VISIBLE, views)
+  fun setInvisible(vararg views: View): Unit = setVisibility(View.INVISIBLE, views)
+}

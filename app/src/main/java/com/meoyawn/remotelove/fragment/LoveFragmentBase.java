@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.InjectView;
 import com.meoyawn.remotelove.R;
@@ -37,6 +39,8 @@ public class LoveFragmentBase extends RxFragment {
   @InjectView(R.id.love) @NotNull        ImageButton love;
   @InjectView(R.id.cover_frame) @NotNull ViewGroup   coverFrame;
   @InjectView(R.id.more) @NotNull        View        more;
+  @InjectView(R.id.mainFrame) @NotNull   FrameLayout mainFrame;
+  @InjectView(R.id.progress) @NotNull    ProgressBar progressBar;
 
   @Nullable @Override public View onCreateView(@NotNull LayoutInflater inflater,
                                                ViewGroup container,

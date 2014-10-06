@@ -25,12 +25,8 @@ import com.meoyawn.remotelove.effect.Effect
 import com.meoyawn.remotelove.api.model.Status
 import android.graphics.PorterDuff.Mode
 import android.widget.PopupMenu
-import android.widget.ImageView
-import android.widget.LinearLayout.LayoutParams
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.view.animation.DecelerateInterpolator
-import com.meoyawn.remotelove.util.ends
+import com.readystatesoftware.systembartint.SystemBarTintManager
+import com.meoyawn.remotelove.widget.Views
 
 /**
  * Created by adelnizamutdinov on 10/3/14
@@ -46,12 +42,18 @@ class LoveFragment : LoveFragmentBase() {
     Dagger.inject(this)
     ButterKnife.inject(this, view)
 
+    val cfg = SystemBarTintManager(getActivity()).getConfig()!!;
+    mainFrame.setPadding(0,
+                         0,
+                         cfg.getPixelInsetRight(),
+                         cfg.getPixelInsetBottom());
+
     if (inState != null) {
       track = inState.getParcelable("track")!!;
       localLoved = inState.getBoolean("localLoved")
       draw(track)
       if (localLoved != null) {
-        draw(localLoved!!, false)
+        draw(localLoved!!)
       }
     }
 
@@ -81,10 +83,8 @@ class LoveFragment : LoveFragmentBase() {
               }
             }
             is Failure -> {
+              Views.setInvisible(progressBar, albumImage, love, artist)
               title.setText(R.string.check_network_connection)
-              coverFrame.setVisibility(View.INVISIBLE)
-              love.setVisibility(View.GONE)
-              artist.setVisibility(View.INVISIBLE)
             }
             is Success -> draw(it.value)
           }
@@ -103,7 +103,7 @@ class LoveFragment : LoveFragmentBase() {
                 track.loved = if (localLoved!!) 0 else 1
                 localLoved = null
               }
-              draw(track.loved != 0, false)
+              draw(track.loved != 0)
             }
             is Success -> {
               if (localLoved != null) {
@@ -115,7 +115,7 @@ class LoveFragment : LoveFragmentBase() {
             is LoveEffect -> {
               Timber.d("setting local as %b", it.loved)
               localLoved = it.loved
-              draw(it.loved, true)
+              draw(it.loved)
             }
           }
         }
@@ -168,25 +168,11 @@ class LoveFragment : LoveFragmentBase() {
     destroys.subscribe { sub?.unsubscribe() }
   }
 
-  fun draw(loved: Boolean, user: Boolean) {
+  fun draw(loved: Boolean) {
     if (loved) {
       val mutated = getResources()?.getDrawable(R.drawable.ic_action_love)?.mutate()
       mutated?.setColorFilter(getResources()?.getColor(android.R.color.holo_red_light)!!, Mode.SRC_ATOP)
       love.setImageDrawable(mutated)
-
-      if (user) {
-        val iv = ImageView(getActivity()!!)
-        iv.setImageResource(R.drawable.heart_pop)
-        coverFrame.addView(iv, LayoutParams(coverFrame.getWidth(), coverFrame.getHeight()))
-        val set = AnimatorSet()
-        set.playTogether(ObjectAnimator.ofFloat(iv, View.SCALE_X, 2f),
-                         ObjectAnimator.ofFloat(iv, View.SCALE_Y, 2f),
-                         ObjectAnimator.ofFloat(iv, View.ALPHA, 0.5f, 0f))
-        set.setInterpolator(DecelerateInterpolator())
-        set.setDuration(200)
-        set.ends().subscribe { coverFrame.removeView(iv) }
-        set.start()
-      }
     } else {
       love.setImageResource(R.drawable.ic_action_love)
     }
@@ -219,19 +205,15 @@ class LoveFragment : LoveFragmentBase() {
   fun draw(t: Track) {
     this.track = t;
     if (t == Track.EMPTY) {
+      Views.setInvisible(progressBar, albumImage, love, artist)
       title.setText(R.string.nothing_is_playing)
-      coverFrame.setVisibility(View.INVISIBLE)
-      love.setVisibility(View.GONE)
-      artist.setVisibility(View.INVISIBLE)
     } else {
-      coverFrame.setVisibility(View.VISIBLE)
-      love.setVisibility(View.VISIBLE)
-      artist.setVisibility(View.VISIBLE)
+      Views.setVisible(progressBar, albumImage, love, artist)
 
       artist.setText(t.artist.name)
       title.setText(t.name)
 
-      draw(t.loved != 0, false)
+      draw(t.loved != 0)
 
       val albumCover = t.image.lastOrNull()?.url
       val image = when {
