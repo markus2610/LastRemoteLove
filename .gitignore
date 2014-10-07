@@ -32,3 +32,4 @@ dagger-proguard-keepnames.cfg
 app/gradle.properties
 app/shit.keystore
 com_crashlytics_export_strings.xml
+crashlytics-build.properties
