@@ -21,6 +21,7 @@ import com.meoyawn.remotelove.effect.Success
 import retrofit.RetrofitError
 import com.meoyawn.remotelove.api.model.LastFmResponse
 import com.meoyawn.remotelove.util.shortToast
+import timber.log.Timber
 
 data class ValueException<T>(val obj: T) : Exception()
 data class ToastException(val stringRes: Int) : Exception()
@@ -59,7 +60,7 @@ class LoginFragment : LoginFragmentBase() {
                       .doOnNext { preferencesLazy.get()!!.session(it) }!!
                       .subscribeOn(Schedulers.io())!!)
                   .concatWith(Observable.just(Progress(0)))
-            else -> Observable.just(Failure.from<Session>(ToastException(R.string.no_credentials)))
+            else                               -> Observable.just(Failure.from<Session>(ToastException(R.string.no_credentials)))
           }
         }!!
         .subscribe(subject)
@@ -68,7 +69,7 @@ class LoginFragment : LoginFragmentBase() {
     subject
         .takeUntil(viewDestroys)!!
         .observeOn(AndroidSchedulers.mainThread())!!
-        .subscribe {
+        .subscribe({
           when (it) {
             is Progress -> {
               submit.setProgress(it.percent)
@@ -77,41 +78,39 @@ class LoginFragment : LoginFragmentBase() {
               username.setEnabled(b)
               password.setEnabled(b)
             }
-
-            is Success -> {
+            is Success  -> {
               if (preferencesLazy.get()!!.session() != null) {
                 getFragmentManager()?.beginTransaction()
                     ?.replace(android.R.id.content, LoveFragment())
                     ?.commit()
               }
             }
-
-            is Failure -> {
+            is Failure  -> {
               val t = it.throwable
               when (t) {
-                is RetrofitError -> when {
-                  t.isNetworkError() -> show(shortToast(R.string.check_network_connection))
+                is RetrofitError     -> when (t.getKind() == RetrofitError.Kind.NETWORK) {
+                  true -> show(shortToast(R.string.check_network_connection))
                   else -> show(shortToast(R.string.unrecognized_error_occurred))
                 }
-
                 is ValueException<*> -> {
                   val sh: LastFmResponse = t.obj as LastFmResponse;
                   val m = sh.message!!
                   when (sh.error) {
-                    4 -> when {
+                    4    -> when {
                       m.startsWith("Invalid password") -> show(shortToast(R.string.invalid_password))
                       m.startsWith("Invalid username") -> show(shortToast(R.string.invalid_username))
-                      else -> show(shortToast(R.string.invalid_credentials))
+                      else                             -> show(shortToast(R.string.invalid_credentials))
                     }
                     else -> show(shortToast(R.string.invalid_credentials))
                   }
                 }
-
-                is ToastException -> show(shortToast(t.stringRes))
-                else -> show(shortToast(R.string.unrecognized_error_occurred))
+                is ToastException    -> show(shortToast(t.stringRes))
+                else                 -> show(shortToast(R.string.unrecognized_error_occurred))
               }
             }
           }
-        }
+        }, {
+          Timber.e(it, "")
+        })
   }
 }

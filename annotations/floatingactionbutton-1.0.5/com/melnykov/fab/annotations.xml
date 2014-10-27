@@ -1,0 +1,20 @@
+<root>
+    <item name='com.melnykov.fab.BuildConfig BUILD_TYPE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.melnykov.fab.BuildConfig FLAVOR'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.melnykov.fab.ScrollDirectionDetector void onScrollStateChanged(android.widget.AbsListView, int) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.melnykov.fab.FloatingActionButton void attachToListView(android.widget.AbsListView, com.melnykov.fab.FloatingActionButton.FabOnScrollListener) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.melnykov.fab.BuildConfig VERSION_NAME'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.melnykov.fab.BuildConfig PACKAGE_NAME'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

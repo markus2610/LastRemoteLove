@@ -47,6 +47,9 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
+    <item name='butterknife.ButterKnife.Finder android.view.View findRequiredView(java.lang.Object, int, java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='butterknife.OnPageChange.Callback PAGE_SCROLLED'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -59,6 +62,9 @@
     <item name='butterknife.ButterKnife void inject(android.app.Dialog) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='butterknife.ButterKnife.Finder java.util.List&lt;T&gt; listOf(T...)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='butterknife.OnPageChange.Callback PAGE_SCROLL_STATE_CHANGED'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -66,12 +72,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='butterknife.ButterKnife.Finder ACTIVITY'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='butterknife.ButterKnife.Finder android.view.View findRequiredView(java.lang.Object, int, java.lang.String)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='butterknife.ButterKnife.Finder java.util.List&lt;T&gt; listOf(T...)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='butterknife.OnItemSelected.Callback NOTHING_SELECTED'>

@@ -1,8 +1,5 @@
 <root>
-    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.Protocol getProtocol()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt; getRequestHeaders()'>
+    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode COMPRESSION_ERROR'>
@@ -14,8 +11,11 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder handler(com.squareup.okhttp.internal.spdy.IncomingStreamHandler)'>
+    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.Protocol getProtocol()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.FrameReader.Handler void pushPromise(int, int, java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;) 2'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -23,22 +23,10 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection build()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream pushStream(int, java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.Protocol getProtocol()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Source getSource()'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream newStream(java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.Header value'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Timeout readTimeout()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.FrameWriter void goAway(int, com.squareup.okhttp.internal.spdy.ErrorCode, byte[]) 1'>
@@ -47,13 +35,7 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Timeout writeTimeout()'>
+    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.PushObserver CANCEL'>
@@ -74,17 +56,8 @@
     <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder Builder(boolean, java.net.Socket) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.Ping ping()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode CONNECT_ERROR'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
-            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
-        </annotation>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.FrameWriter void synReply(boolean, int, java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;) 2'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -110,8 +83,11 @@
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode UNSUPPORTED_VERSION'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Sink getSink()'>
+    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode FLOW_CONTROL_ERROR'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -122,7 +98,7 @@
     <item name='com.squareup.okhttp.internal.spdy.HeadersMode HTTP_20_HEADERS'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder protocol(com.squareup.okhttp.Protocol)'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder pushObserver(com.squareup.okhttp.internal.spdy.PushObserver)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode INADEQUATE_SECURITY'>
@@ -137,7 +113,7 @@
     <item name='com.squareup.okhttp.internal.spdy.IncomingStreamHandler REFUSE_INCOMING_STREAMS'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream newStream(java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean, boolean)'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream pushStream(int, java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode REFUSED_STREAM'>
@@ -158,13 +134,22 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
+    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.Protocol getProtocol()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Timeout readTimeout()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.Protocol getProtocol()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.Header Header(okio.ByteString, okio.ByteString) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Source getSource()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Timeout writeTimeout()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode STREAM_IN_USE'>
@@ -179,9 +164,6 @@
     <item name='com.squareup.okhttp.internal.spdy.Header name'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyStream com.squareup.okhttp.internal.spdy.SpdyConnection getConnection()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.spdy.HeadersMode SPDY_SYN_STREAM'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -194,6 +176,9 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection build()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.okhttp.internal.spdy.IncomingStreamHandler void receive(com.squareup.okhttp.internal.spdy.SpdyStream) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
@@ -203,10 +188,19 @@
     <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream pushStream(int, java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='com.squareup.okhttp.internal.spdy.Http20Draft12 com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode FRAME_TOO_LARGE'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode STREAM_ALREADY_CLOSED'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.Spdy3 com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.Ping ping()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode NO_ERROR'>
@@ -224,16 +218,25 @@
     <item name='com.squareup.okhttp.internal.spdy.Header Header(okio.ByteString, okio.ByteString) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder pushObserver(com.squareup.okhttp.internal.spdy.PushObserver)'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder handler(com.squareup.okhttp.internal.spdy.IncomingStreamHandler)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.SpdyConnection com.squareup.okhttp.internal.spdy.SpdyStream newStream(java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean, boolean) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream com.squareup.okhttp.internal.spdy.SpdyConnection getConnection()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt; getRequestHeaders()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.okhttp.internal.spdy.SpdyStream void reply(java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt;, boolean) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.internal.spdy.FrameWriter newWriter(okio.BufferedSink, boolean)'>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyStream okio.Sink getSink()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.internal.spdy.FrameReader newReader(okio.BufferedSource, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
@@ -242,16 +245,13 @@
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode INVALID_STREAM'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.spdy.Variant com.squareup.okhttp.Protocol getProtocol()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
-            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
-        </annotation>
-    </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode INTERNAL_ERROR'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.spdy.ErrorCode PROTOCOL_ERROR'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.spdy.SpdyConnection.Builder com.squareup.okhttp.internal.spdy.SpdyConnection.Builder protocol(com.squareup.okhttp.Protocol)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
 </root>

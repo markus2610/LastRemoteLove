@@ -1,0 +1,17 @@
+<root>
+    <item name='com.dd.CircularProgressButton android.content.res.TypedArray getTypedArray(android.content.Context, android.util.AttributeSet, int[]) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.dd.CircularProgressButton CircularProgressButton(android.content.Context) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.dd.CircularProgressButton android.os.Parcelable onSaveInstanceState()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.dd.CircularProgressButton CircularProgressButton(android.content.Context, android.util.AttributeSet) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.dd.CircularProgressButton CircularProgressButton(android.content.Context, android.util.AttributeSet, int) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

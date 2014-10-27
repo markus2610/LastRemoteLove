@@ -2,22 +2,10 @@
     <item name='com.squareup.picasso.Picasso.LoadedFrom NETWORK'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request build()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Downloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
-            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
-        </annotation>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder centerInside()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator centerCrop()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder executor(java.util.concurrent.ExecutorService) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder memoryCache(com.squareup.picasso.Cache)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Cache android.graphics.Bitmap get(java.lang.String) 0'>
@@ -26,22 +14,22 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.picasso.Request com.squareup.picasso.Request.Builder buildUpon()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator noFade()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.picasso.Picasso.Builder Builder(android.content.Context) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator placeholder(int)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder transform(com.squareup.picasso.Transformation)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.LruCache LruCache(android.content.Context) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder debugging(boolean)'>
+    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator resize(int, int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator rotate(float)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.RequestCreator void into(android.widget.ImageView, com.squareup.picasso.Callback) 0'>
@@ -50,28 +38,10 @@
     <item name='com.squareup.picasso.OkHttpDownloader OkHttpDownloader(android.content.Context) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearCenterInside()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder config(android.graphics.Bitmap.Config)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(android.net.Uri)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder rotate(float, float, float)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.picasso.RequestCreator void into(android.widget.RemoteViews, int, int[]) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Downloader.Response Response(java.io.InputStream, boolean) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator transform(com.squareup.picasso.Transformation)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder executor(java.util.concurrent.ExecutorService)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder listener(com.squareup.picasso.Picasso.Listener) 0'>
@@ -80,19 +50,13 @@
     <item name='com.squareup.picasso.Cache NONE'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso build()'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearResize()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.UrlConnectionDownloader java.net.HttpURLConnection openConnection(android.net.Uri)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Request.Builder Builder(android.net.Uri) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder centerCrop()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder downloader(com.squareup.picasso.Downloader)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder indicatorsEnabled(boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator transform(com.squareup.picasso.Transformation) 0'>
@@ -116,34 +80,28 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.picasso.OkHttpDownloader java.net.HttpURLConnection openConnection(android.net.Uri)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder downloader(com.squareup.picasso.Downloader) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setUri(android.net.Uri)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator error(int)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setResourceId(int)'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator resizeDimen(int, int)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.OkHttpDownloader java.net.HttpURLConnection openConnection(android.net.Uri) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(java.io.File)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setUri(android.net.Uri) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setUri(android.net.Uri) 0'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator placeholder(android.graphics.drawable.Drawable)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(int)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Downloader.Response Response(android.graphics.Bitmap, boolean, long) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator rotate(float)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder rotate(float, float, float)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Downloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean) 0'>
@@ -155,28 +113,31 @@
     <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder requestTransformer(com.squareup.picasso.Picasso.RequestTransformer) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='com.squareup.picasso.UrlConnectionDownloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.picasso.LruCache void set(java.lang.String, android.graphics.Bitmap) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator fit()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder resize(int, int)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearRotation()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator centerInside()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearCenterCrop()'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator skipMemoryCache()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Downloader.Response Response(android.graphics.Bitmap, boolean) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator skipMemoryCache()'>
+    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(android.net.Uri)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator placeholder(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder debugging(boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder rotate(float)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator noFade()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Cache void set(java.lang.String, android.graphics.Bitmap) 1'>
@@ -185,22 +146,34 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder requestTransformer(com.squareup.picasso.Picasso.RequestTransformer)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.picasso.RequestCreator void into(com.squareup.picasso.Target) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearResize()'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearCenterInside()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator resize(int, int)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder config(android.graphics.Bitmap.Config)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator error(android.graphics.drawable.Drawable)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request build()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearCenterCrop()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder executor(java.util.concurrent.ExecutorService)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder clearRotation()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso build()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.OkHttpDownloader OkHttpDownloader(android.content.Context, long) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request com.squareup.picasso.Request.Builder buildUpon()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.RequestCreator void into(android.widget.RemoteViews, int, int, android.app.Notification) 0'>
@@ -215,10 +188,7 @@
     <item name='com.squareup.picasso.Picasso.RequestTransformer IDENTITY'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator config(android.graphics.Bitmap.Config)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.OkHttpDownloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator rotate(float, float, float)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.StatsSnapshot void dump(java.io.PrintWriter) 0'>
@@ -230,64 +200,94 @@
     <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder transform(com.squareup.picasso.Transformation) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder transform(com.squareup.picasso.Transformation)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso com.squareup.picasso.StatsSnapshot getSnapshot()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder listener(com.squareup.picasso.Picasso.Listener)'>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder loggingEnabled(boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.Picasso.LoadedFrom DISK'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder loggingEnabled(boolean)'>
+    <item name='com.squareup.picasso.OkHttpDownloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator resizeDimen(int, int)'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator fit()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator rotate(float, float, float)'>
+    <item name='com.squareup.picasso.OkHttpDownloader java.net.HttpURLConnection openConnection(android.net.Uri)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.UrlConnectionDownloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setResourceId(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder setUri(android.net.Uri)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder downloader(com.squareup.picasso.Downloader)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder indicatorsEnabled(boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator centerInside()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder listener(com.squareup.picasso.Picasso.Listener)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.UrlConnectionDownloader UrlConnectionDownloader(android.content.Context) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.UrlConnectionDownloader java.net.HttpURLConnection openConnection(android.net.Uri)'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator transform(com.squareup.picasso.Transformation)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(int)'>
+    <item name='com.squareup.picasso.Picasso com.squareup.picasso.StatsSnapshot getSnapshot()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator error(android.graphics.drawable.Drawable)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.UrlConnectionDownloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder rotate(float)'>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder centerCrop()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.picasso.RequestCreator void into(android.widget.RemoteViews, int, int, android.app.Notification) 3'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator config(android.graphics.Bitmap.Config)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder resize(int, int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Request.Builder com.squareup.picasso.Request.Builder centerInside()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.picasso.Downloader.Response Response(java.io.InputStream, boolean, long) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(java.lang.String)'>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator centerCrop()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator placeholder(android.graphics.drawable.Drawable)'>
+    <item name='com.squareup.picasso.Downloader com.squareup.picasso.Downloader.Response load(android.net.Uri, boolean)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder memoryCache(com.squareup.picasso.Cache)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
     </item>
     <item name='com.squareup.picasso.Picasso.LoadedFrom MEMORY'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+    <item name='com.squareup.picasso.Picasso com.squareup.picasso.RequestCreator load(java.io.File)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder memoryCache(com.squareup.picasso.Cache) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.Picasso.Builder com.squareup.picasso.Picasso.Builder requestTransformer(com.squareup.picasso.Picasso.RequestTransformer)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.picasso.RequestCreator com.squareup.picasso.RequestCreator error(int)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
 </root>

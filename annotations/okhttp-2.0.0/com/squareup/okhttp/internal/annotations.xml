@@ -1,12 +1,12 @@
 <root>
-    <item name='com.squareup.okhttp.internal.Platform com.squareup.okhttp.internal.Platform get()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.InternalCache void trackResponse(com.squareup.okhttp.internal.http.CacheStrategy) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
+    </item>
+    <item name='com.squareup.okhttp.internal.Platform java.lang.String getPrefix()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.Util java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt; headerEntries(java.lang.String...) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -38,20 +38,17 @@
     <item name='com.squareup.okhttp.internal.Platform void configureTls(javax.net.ssl.SSLSocket, java.lang.String, java.lang.String) 2'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.BitArray.FixedCapacity com.squareup.okhttp.internal.BitArray toVariableCapacity()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.Util com.squareup.okhttp.internal.http.RetryableSink emptySink()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.Util int getEffectivePort(java.net.URI) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.Internal com.squareup.okhttp.internal.RouteDatabase routeDatabase(com.squareup.okhttp.OkHttpClient)'>
+    <item name='com.squareup.okhttp.internal.Internal com.squareup.okhttp.internal.http.Transport newTransport(com.squareup.okhttp.Connection, com.squareup.okhttp.internal.http.HttpEngine)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
+    </item>
+    <item name='com.squareup.okhttp.internal.Util int getEffectivePort(java.net.URI) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.Util java.util.concurrent.ThreadFactory threadFactory(java.lang.String, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.InternalCache void remove(com.squareup.okhttp.Request) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -65,9 +62,6 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.DiskLruCache com.squareup.okhttp.internal.DiskLruCache open(java.io.File, int, int, long)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.Internal void setOwner(com.squareup.okhttp.Connection, com.squareup.okhttp.internal.http.HttpEngine) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
@@ -75,6 +69,15 @@
         </annotation>
     </item>
     <item name='com.squareup.okhttp.internal.Platform void connectSocket(java.net.Socket, java.net.InetSocketAddress, int) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.Internal com.squareup.okhttp.internal.RouteDatabase routeDatabase(com.squareup.okhttp.OkHttpClient)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.squareup.okhttp.internal.DiskLruCache.Editor java.io.OutputStream newOutputStream(int)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.Internal void recycle(com.squareup.okhttp.ConnectionPool, com.squareup.okhttp.Connection) 0'>
@@ -98,12 +101,6 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.Util java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt; headerEntries(java.lang.String...)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='com.squareup.okhttp.internal.Platform java.lang.String getPrefix()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.Util void deleteContents(java.io.File) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -122,12 +119,6 @@
     <item name='com.squareup.okhttp.internal.Platform java.net.URI toUriLenient(java.net.URL) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='com.squareup.okhttp.internal.Internal com.squareup.okhttp.internal.http.Transport newTransport(com.squareup.okhttp.Connection, com.squareup.okhttp.internal.http.HttpEngine)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
-            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
-        </annotation>
-    </item>
     <item name='com.squareup.okhttp.internal.Internal void setCache(com.squareup.okhttp.OkHttpClient, com.squareup.okhttp.internal.InternalCache) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
@@ -140,7 +131,10 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.Util java.util.concurrent.ThreadFactory threadFactory(java.lang.String, boolean)'>
+    <item name='com.squareup.okhttp.internal.Util com.squareup.okhttp.internal.http.RetryableSink emptySink()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.Platform com.squareup.okhttp.internal.Platform get()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.Dns java.net.InetAddress[] getAllByName(java.lang.String) 0'>
@@ -185,9 +179,6 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
-    <item name='com.squareup.okhttp.internal.DiskLruCache.Editor java.io.OutputStream newOutputStream(int)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='com.squareup.okhttp.internal.InternalCache void update(com.squareup.okhttp.Response, com.squareup.okhttp.Response) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
@@ -224,6 +215,9 @@
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
     </item>
+    <item name='com.squareup.okhttp.internal.DiskLruCache com.squareup.okhttp.internal.DiskLruCache open(java.io.File, int, int, long)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
     <item name='com.squareup.okhttp.internal.Internal void setProtocol(com.squareup.okhttp.Connection, com.squareup.okhttp.Protocol) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
@@ -235,6 +229,12 @@
         <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
             <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
         </annotation>
+    </item>
+    <item name='com.squareup.okhttp.internal.BitArray.FixedCapacity com.squareup.okhttp.internal.BitArray toVariableCapacity()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.squareup.okhttp.internal.Util java.util.List&lt;com.squareup.okhttp.internal.spdy.Header&gt; headerEntries(java.lang.String...)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='com.squareup.okhttp.internal.Util java.util.List&lt;T&gt; immutableList(T...) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>

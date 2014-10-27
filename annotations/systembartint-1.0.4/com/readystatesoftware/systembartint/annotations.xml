@@ -1,0 +1,20 @@
+<root>
+    <item name='com.readystatesoftware.systembartint.BuildConfig PACKAGE_NAME'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.readystatesoftware.systembartint.SystemBarTintManager SystemBarTintManager(android.app.Activity) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.readystatesoftware.systembartint.BuildConfig FLAVOR'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.readystatesoftware.systembartint.BuildConfig VERSION_NAME'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.readystatesoftware.systembartint.SystemBarTintManager com.readystatesoftware.systembartint.SystemBarTintManager.SystemBarConfig getConfig()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.readystatesoftware.systembartint.BuildConfig BUILD_TYPE'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

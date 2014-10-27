@@ -33,14 +33,14 @@ public class LoveFragmentBase extends RxFragment {
   @Inject @NotNull Subject<Effect<Status>, Effect<Status>> statusSubject;
   @Inject @NotNull Subject<Effect<Track>, Effect<Track>>   tracksSubject;
 
-  @InjectView(R.id.album_image) @NotNull ImageView   albumImage;
-  @InjectView(R.id.artist) @NotNull      TextView    artist;
-  @InjectView(R.id.title) @NotNull       TextView    title;
-  @InjectView(R.id.love) @NotNull        ImageButton love;
-  @InjectView(R.id.cover_frame) @NotNull ViewGroup   coverFrame;
-  @InjectView(R.id.more) @NotNull        View        more;
-  @InjectView(R.id.mainFrame) @NotNull   FrameLayout mainFrame;
-  @InjectView(R.id.progress) @NotNull    ProgressBar progressBar;
+  @InjectView(R.id.album_image) @Nullable ImageView   albumImage;
+  @InjectView(R.id.artist) @Nullable      TextView    artist;
+  @InjectView(R.id.title) @Nullable       TextView    title;
+  @InjectView(R.id.love) @Nullable        ImageButton love;
+  @InjectView(R.id.cover_frame) @Nullable ViewGroup   coverFrame;
+  @InjectView(R.id.more) @Nullable        View        more;
+  @InjectView(R.id.mainFrame) @Nullable   FrameLayout mainFrame;
+  @InjectView(R.id.progress) @Nullable    ProgressBar progressBar;
 
   @Nullable @Override public View onCreateView(@NotNull LayoutInflater inflater,
                                                ViewGroup container,

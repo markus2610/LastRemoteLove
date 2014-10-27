@@ -1,0 +1,44 @@
+<root>
+    <item name='rx.operators.OperatorCompoundButtonInput void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorEditTextInput void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorBroadcastRegister void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorEditTextInput void call(rx.Subscriber&lt;? super java.lang.String&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorConditionalBinding rx.Subscriber&lt;? super T&gt; call(rx.Subscriber&lt;? super T&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorTextViewInput void call(rx.Subscriber&lt;? super T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorConditionalBinding java.lang.Object call(java.lang.Object)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorLocalBroadcastRegister void call(rx.Subscriber&lt;? super android.content.Intent&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorCompoundButtonInput void call(rx.Subscriber&lt;? super java.lang.Boolean&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorViewClick void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorTextViewInput void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorBroadcastRegister void call(rx.Subscriber&lt;? super android.content.Intent&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorViewClick void call(rx.Subscriber&lt;? super T&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='rx.operators.OperatorLocalBroadcastRegister void call(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

@@ -20,11 +20,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+    kotlinOptions.annotations = file("$rootDir/annotations/")
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
-    kotlinOptions.annotations = file("$rootDir/annotations/")
 
     final isTravis = "true".equals(System.getenv("TRAVIS"))
     if (!isTravis) {

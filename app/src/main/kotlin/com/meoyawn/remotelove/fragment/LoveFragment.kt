@@ -43,7 +43,7 @@ class LoveFragment : LoveFragmentBase() {
     ButterKnife.inject(this, view)
 
     val cfg = SystemBarTintManager(getActivity()).getConfig()!!;
-    mainFrame.setPadding(0,
+    mainFrame?.setPadding(0,
                          0,
                          cfg.getPixelInsetRight(),
                          cfg.getPixelInsetBottom());
@@ -79,12 +79,12 @@ class LoveFragment : LoveFragmentBase() {
           when (it) {
             is Loading -> {
               if (it.loading && track == Track.EMPTY) {
-                love.setVisibility(View.INVISIBLE)
+                love?.setVisibility(View.INVISIBLE)
               }
             }
             is Failure -> {
               Views.setInvisible(progressBar, albumImage, love, artist)
-              title.setText(R.string.check_network_connection)
+              title?.setText(R.string.check_network_connection)
             }
             is Success -> draw(it.value)
           }
@@ -122,9 +122,9 @@ class LoveFragment : LoveFragmentBase() {
   }
 
   fun moreButtonPipe() {
-    more.clicks()
-        .takeUntil(viewDestroys)!!
-        .subscribe {
+    more?.clicks()
+        ?.takeUntil(viewDestroys)
+        ?.subscribe {
           val pm = PopupMenu(getActivity()!!, more)
           pm.inflate(R.menu.love_more)
           pm.setOnMenuItemClickListener {
@@ -145,10 +145,10 @@ class LoveFragment : LoveFragmentBase() {
   }
 
   fun loveButtonPipe() {
-    val albumTaps = albumImage.clicks()
-    val doubleTaps = albumTaps.flatMap { albumTaps.takeUntil(Observable.timer(200, TimeUnit.MILLISECONDS)) }
+    val albumTaps = albumImage?.clicks()
+    val doubleTaps = albumTaps?.flatMap { albumTaps?.takeUntil(Observable.timer(200, TimeUnit.MILLISECONDS)) }
 
-    val clicks = Observable.merge(love.clicks(), doubleTaps)!!
+    val clicks = Observable.merge(love?.clicks(), doubleTaps)!!
     val sub = clicks.flatMap {
       val sk = preferencesLazy.get()?.session()?.key
       val artist = track.artist.name
@@ -172,9 +172,9 @@ class LoveFragment : LoveFragmentBase() {
     if (loved) {
       val mutated = getResources()?.getDrawable(R.drawable.ic_action_love)?.mutate()
       mutated?.setColorFilter(getResources()?.getColor(android.R.color.holo_red_light)!!, Mode.SRC_ATOP)
-      love.setImageDrawable(mutated)
+      love?.setImageDrawable(mutated)
     } else {
-      love.setImageResource(R.drawable.ic_action_love)
+      love?.setImageResource(R.drawable.ic_action_love)
     }
   }
 
@@ -206,12 +206,12 @@ class LoveFragment : LoveFragmentBase() {
     this.track = t;
     if (t == Track.EMPTY) {
       Views.setInvisible(progressBar, albumImage, love, artist)
-      title.setText(R.string.nothing_is_playing)
+      title?.setText(R.string.nothing_is_playing)
     } else {
       Views.setVisible(progressBar, albumImage, love, artist)
 
-      artist.setText(t.artist.name)
-      title.setText(t.name)
+      artist?.setText(t.artist.name)
+      title?.setText(t.name)
 
       draw(t.loved != 0)
 
@@ -223,7 +223,7 @@ class LoveFragment : LoveFragmentBase() {
       if (!TextUtils.isEmpty(image)) {
         picassoLazy.get()!!.load(image)!!.into(albumImage)
       } else {
-        albumImage.setImageResource(R.drawable.lastfm)
+        albumImage?.setImageResource(R.drawable.lastfm)
       }
     }
   }
